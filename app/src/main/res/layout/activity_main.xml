@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:onClick="OcultarConfig"
+                    android:src="@drawable/ic_clean" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:onClick="RevelarConfig"
+                    android:src="@drawable/ic_seating" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/linearSeating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alfAncho01"
+                    android:text="N# Letras"
+                    android:textSize="15dp"
+                    android:textColor="#2826d6"
+                    android:layout_alignParentLeft="true"
+                    /></RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                <TextView
+                    android:textColor="#2826d6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alfAncho02"
+                    android:text="N# Letras"
+                    android:textSize="15dp"
+                    android:layout_alignParentRight="true"
+                    /></RelativeLayout>
+            </LinearLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alfPrimario"
+                    android:hint="Alfabeto 1"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alfSecundario"
+                    android:hint="Alfabeto 2"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <RadioGroup
+                android:id="@+id/radioG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/opEncriptar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:text="Encriptar" />
+
+                <RadioButton
+                    android:id="@+id/opDesencriptar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Desencriptar" />
+
+            </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/txtDato"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese Dato..." />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/btnValiSave"
+                android:onClick="ValidarSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Validar | Guardar"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="Cripto"
+        android:id="@+id/btnCrito"
+        android:onClick="btnCripto"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="LLano"
+        android:onClick="btnLLanoC"
+        android:id="@+id/btnLlano"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idEntorno"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#000"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTitulo"
+                android:text=""
+                android:gravity="center"
+                android:textColor="#fff"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <CheckBox android:id="@+id/checkbox_saltos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saltos Sucesivos"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/checkbox_tanspo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transpocision"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/checkbox_trama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trama"
+            android:onClick="onCheckboxClicked"/>
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+        <View android:background="#000"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <EditText
+                android:inputType="textCapCharacters"
+                android:id="@+id/txtLetra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint=" Primera Letra "
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:maxLength="1"
+                />
+
+            <CheckBox android:id="@+id/checkbox_inverso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avc Inverso"
+                android:layout_gravity="center"
+                android:onClick="onCheckboxInverso"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:text="Generar Avc"
+                android:onClick="GenerarAvc"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearSaltos"
+          android:visibility="gone"
+            android:orientation="vertical">
+
+            <View android:background="#000"
+                android:layout_width = "match_parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Saltos Sucesivos"
+                android:textSize="18dp"
+                android:textColor="#1c75e2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+            <EditText
+                android:id="@+id/txtClaveSaltos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint=" Clave N# "
+                android:maxLength="3"
+                android:digits="123456789"
+                android:inputType="number"
+                />
+                <EditText
+                    android:inputType="textCapCharacters"
+                    android:id="@+id/txtIDSaltos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint=" Clave IDI "
+                    android:digits="IDI"
+                    android:maxLength="3"
+                    />
+                <CheckBox android:id="@+id/checkbox_Inicia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inicia"
+                    android:layout_gravity="center"
+                    android:onClick="onCheckboxSaltos"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Ejecutar"
+
+                    android:onClick="EjecutarSaltos"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/linearTranspocision"
+        android:orientation="vertical">
+
+        <View android:background="#000"
+            android:layout_width = "match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transpocision"
+            android:textSize="18dp"
+            android:textColor="#1c75e2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/txtClaveTranspo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint=" Clave N# "
+                android:digits="123456789"
+                android:maxLength="7"
+                android:inputType="number"
+                />
+            <CheckBox android:id="@+id/checkbox_descendente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descendente"
+                android:layout_gravity="center"
+                android:onClick="onCheckboxDescendente"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:text="Ejecutar"
+
+                android:onClick="EjecutarTranspocision"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearTrama"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <View android:background="#000"
+                android:layout_width = "match_parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trama"
+                android:textSize="18dp"
+                android:textColor="#1c75e2"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <EditText
+                    android:id="@+id/txtClaveTrama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint=" Clave N# "
+                    android:digits="123456789"
+                    android:maxLength="7"
+                    android:inputType="number"
+                    />
+                <CheckBox android:id="@+id/checkbox_descendenteTrama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descendente"
+                    android:layout_gravity="center"
+                    android:onClick="onCheckboxDescendenteTrama"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Ejecutar"
+
+                    android:onClick="EjecutarTrama"
+                    android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alfbetoGenerado"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:textColor="#d71d1d"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:visibility="gone"
+                android:id="@+id/btnGuardarAlf"
+                android:onClick="Guardar"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
