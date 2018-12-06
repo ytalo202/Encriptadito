@@ -96,11 +96,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-
+                    android:enabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/alfPrimario"
-                    android:hint="Alfabeto 1"/>
+                    android:hint="Alfabeto XP"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -110,43 +110,36 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-
+                    android:enabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/alfSecundario"
-                    android:hint="Alfabeto 2"/>
+                    android:hint="Alfabeto LL"/>
 
             </android.support.design.widget.TextInputLayout>
 
-            <RadioGroup
-                android:id="@+id/radioG"
-                android:layout_width="match_parent"
+
+            <CheckBox android:id="@+id/checkbox_desCrip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="Decencriptado"
+                android:layout_gravity="center"
+                android:onClick="onCheckboxDescriptado"/>
 
-                <RadioButton
-                    android:id="@+id/opEncriptar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
 
-                    android:text="Encriptar" />
 
-                <RadioButton
-                    android:id="@+id/opDesencriptar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Desencriptar" />
-
-            </RadioGroup>
+            <View android:background="#3062c6"
+                android:layout_width = "match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="3dp"/>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:inputType="textCapCharacters"
                     android:id="@+id/txtDato"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -154,13 +147,67 @@
             </android.support.design.widget.TextInputLayout>
 
 
-            <Button
-                android:id="@+id/btnValiSave"
-                android:onClick="ValidarSave"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Validar | Guardar"/>
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnValiSave"
+                android:onClick="EjecutarCripDescrip"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Ejecutar Accion"/>
 
+                <Button
+
+                    android:onClick="EjecutarClean"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Limpiar"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4bae73"
+
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/txtMsCrip"
+                    android:textColor="#fff"
+                    android:textSize="19dp"
+                    android:text="Mensaje Encriptado..."
+                    />
+                <RelativeLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/btncopy"
+                    >
+
+                    <ImageView
+
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_content_copy"
+                        />
+                </RelativeLayout>
+            </RelativeLayout>
 
 
         </LinearLayout>
@@ -211,6 +258,18 @@
                 android:textColor="#fff"/>
 
     </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/alfbetoGenerado"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:textColor="#d71d1d"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -437,17 +496,7 @@
 
         </LinearLayout>
     </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/alfbetoGenerado"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:textSize="18dp"
-            android:textColor="#d71d1d"
-            android:textStyle="bold"
-            android:layout_margin="5dp"
-            />
+
 
 
             <Button

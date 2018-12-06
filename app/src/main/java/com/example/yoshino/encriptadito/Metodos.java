@@ -164,4 +164,31 @@ public class Metodos {
         }
         return avcSale;
     }
+
+    public String cripLetra(String letra, ArrayList<String> alfCrito, ArrayList<String> alfLlano, int i) {
+        int indexLetra = buscarLetra(letra,alfCrito);
+        ArrayList<String> llano = new ArrayList<>();
+        llano.addAll(alfLlano);
+        if (i!=0) {
+            Collections.rotate(llano, i);
+        }
+
+        String letraCrip = llano.get(indexLetra);
+
+        return  letraCrip;
+    }
+
+
+    public String descriptaLetra(String letra, ArrayList<String> alfCrito, ArrayList<String> alfLlano, int i) {
+        int indexLetra = buscarLetra(letra,alfCrito);
+        ArrayList<String> llano = new ArrayList<>();
+        llano.addAll(alfLlano);
+        if (i!=0) {
+            Collections.rotate(llano, -i);
+        }
+
+        String letraCrip = llano.get(indexLetra);
+
+        return  letraCrip;
+    }
 }
