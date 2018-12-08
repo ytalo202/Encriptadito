@@ -313,13 +313,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void EjecutarSaltos(View view) {
-        if (ObtenerIDSaltos().length() == 3 && ObtenerClaveSaltos().length() == 3) {
+        if (ObtenerIDSaltos().length() >0 && ObtenerClaveSaltos().length() >0) {
 
             alphabet1 = Crypto.successiveJumps(alphabet1, ObtenerClaveSaltos() + ObtenerIDSaltos(), false);
             String newAvc = metodos.getStringListCharacters(alphabet1);
             alfGenerado.setText(newAvc);
         } else {
-            Toast.makeText(this, "llene los datos correctamente para continuar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "llene los datos correctamente para continuar ID almenos 1", Toast.LENGTH_SHORT).show();
         }
     }
     List<Character> alphabet1;
@@ -474,6 +474,28 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(this, "Encriptado", Toast.LENGTH_SHORT).show();
                     isDececriptado = false;
+                }
+                break;
+        }
+    }
+
+
+
+    public void onCheckboxEdita(View view) {
+
+        boolean checked = ((CheckBox) view).isChecked();
+        // Check which checkbox was clicked
+        switch (view.getId()) {
+            case R.id.checkbox_editar:
+                if (checked) {
+                    Toast.makeText(this, "Editable", Toast.LENGTH_SHORT).show();
+                    alfabeto01.setEnabled(true);
+                    alfabeto02.setEnabled(true);
+                } else {
+                    Toast.makeText(this, "No Editable", Toast.LENGTH_SHORT).show();
+                    alfabeto01.setEnabled(false);
+                    alfabeto02.setEnabled(false);
+
                 }
                 break;
         }

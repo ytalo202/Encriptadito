@@ -50,7 +50,7 @@
 
 
         <LinearLayout
-            android:visibility="gone"
+        android:visibility="gone"
             android:id="@+id/linearSeating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,9 +96,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:enabled="false"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:inputType="textCapCharacters"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="26"
+                    android:enabled="false"
                     android:id="@+id/alfPrimario"
                     android:hint="Alfabeto XP"/>
 
@@ -111,23 +114,36 @@
 
                 <EditText
                     android:enabled="false"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:inputType="textCapCharacters"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/alfSecundario"
+                    android:maxLength="26"
                     android:hint="Alfabeto LL"/>
 
             </android.support.design.widget.TextInputLayout>
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
             <CheckBox android:id="@+id/checkbox_desCrip"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Decencriptado"
                 android:layout_gravity="center"
                 android:onClick="onCheckboxDescriptado"/>
 
-
-
+            <CheckBox android:id="@+id/checkbox_editar"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Editable"
+                android:layout_gravity="center"
+                android:onClick="onCheckboxEdita"/>
+</LinearLayout>
             <View android:background="#3062c6"
                 android:layout_width = "match_parent"
                 android:layout_height="2dp"
@@ -370,7 +386,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint=" Clave N# "
-                android:maxLength="3"
+                android:maxLength="5"
                 android:digits="123456789"
                 android:inputType="number"
                 />
@@ -381,7 +397,7 @@
                     android:layout_height="wrap_content"
                     android:hint=" Clave IDI "
                     android:digits="IDI"
-                    android:maxLength="3"
+                    android:maxLength="5"
                     />
                 <CheckBox android:id="@+id/checkbox_Inicia"
                     android:layout_width="wrap_content"
