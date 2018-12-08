@@ -176,31 +176,36 @@ public class MainActivity extends AppCompatActivity {
     public void EjecutarCripDescrip(View view) {
         if (ObtenerAlfabeto01().length() == ObtenerAlfabeto02().length()) {
             if (metodos.contar(ObtenerAlfabeto01()) == 1 && metodos.contar(ObtenerAlfabeto02()) == 1) {
-                updateAnchoNum();
-                Toast.makeText(this, "Validado y Guardado", Toast.LENGTH_SHORT).show();
-                mensajeEncritado ="";
-                String msj = ObtenertxtDato();
-                ArrayList<String> alfCrito = metodos.convertStringToArraylist(ObtenerAlfabeto01());
-                ArrayList<String> alfLlano = metodos.convertStringToArraylist(ObtenerAlfabeto02());
-                if (isDececriptado){
-                    for (int i = 0; i < msj.length(); i++) {
-                        String letra = String.valueOf(msj.charAt(i));
 
-                        String letraEncriptada = metodos.descriptaLetra(letra,alfLlano , alfCrito, i);
-                        mensajeEncritado = mensajeEncritado + letraEncriptada;
-                    }
-                    txtMsCrip.setText(mensajeEncritado);
+                if (ObtenerAlfabeto01().length() == 26 && ObtenerAlfabeto02().length() == 26) {
+                    updateAnchoNum();
+                    Toast.makeText(this, "Validado y Guardado", Toast.LENGTH_SHORT).show();
                     mensajeEncritado = "";
+                    String msj = ObtenertxtDato();
+                    ArrayList<String> alfCrito = metodos.convertStringToArraylist(ObtenerAlfabeto01());
+                    ArrayList<String> alfLlano = metodos.convertStringToArraylist(ObtenerAlfabeto02());
+                    if (isDececriptado) {
+                        for (int i = 0; i < msj.length(); i++) {
+                            String letra = String.valueOf(msj.charAt(i));
+
+                            String letraEncriptada = metodos.descriptaLetra(letra, alfLlano, alfCrito, i);
+                            mensajeEncritado = mensajeEncritado + letraEncriptada;
+                        }
+                        txtMsCrip.setText(mensajeEncritado);
+                        mensajeEncritado = "";
+                    } else {
+                        for (int i = 0; i < msj.length(); i++) {
+                            String letra = String.valueOf(msj.charAt(i));
+
+                            String letraEncriptada = metodos.cripLetra(letra, alfCrito, alfLlano, i);
+                            mensajeEncritado = mensajeEncritado + letraEncriptada;
+                        }
+                        txtMsCrip.setText(mensajeEncritado);
+                        mensajeEncritado = "";
+
+                    }
                 }else {
-                    for (int i = 0; i < msj.length(); i++) {
-                        String letra = String.valueOf(msj.charAt(i));
-
-                        String letraEncriptada = metodos.cripLetra(letra, alfCrito, alfLlano, i);
-                        mensajeEncritado = mensajeEncritado + letraEncriptada;
-                    }
-                    txtMsCrip.setText(mensajeEncritado);
-                    mensajeEncritado = "";
-
+                    Toast.makeText(this, "Los alfabetos deben tener 26 letras", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(this, "No repitas letras en ninguno de los alfabetos", Toast.LENGTH_SHORT).show();
